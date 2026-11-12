@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#effcf4" />
+  <meta name="description" content="Hình mô hình tế bào thực vật kèm nhãn tương tác và thông tin 14 thành phần dành cho học sinh lớp 10/1 – THPT Hoàng Diệu." />
+  <title>Mô hình tế bào thực vật | Lớp 10/1 – THPT Hoàng Diệu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap');
+    :root{--ink:#173a32;--muted:#668078;--green:#16a66a;--green2:#31c982;--mint:#e9fff2;--line:#dcefe4;--white:#fff;--shadow:0 18px 50px rgba(22,86,58,.09);--radius:22px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(135deg,#f7fffa 0%,#f4fbff 48%,#fffdf4 100%);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif}
+    button,input{font:inherit} button{cursor:pointer} .app{max-width:1600px;margin:auto;padding:22px 26px 48px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:13px;min-width:0}.brand-mark{height:48px;width:48px;border-radius:16px;background:linear-gradient(145deg,#24c77d,#0c8a59);display:grid;place-items:center;color:#fff;font-size:25px;box-shadow:0 8px 18px #24c77d45}.brand h1{font:900 clamp(18px,2.2vw,25px) 'Nunito',sans-serif;letter-spacing:-.5px;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.6px}.top-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.pill{border:1px solid var(--line);background:#ffffffc9;border-radius:999px;padding:9px 13px;color:#497264;font-size:12px;font-weight:700;display:flex;align-items:center;gap:7px}.pill strong{color:#168c5b}.action{border:1px solid #cbe9d7;border-radius:13px;background:#fff;padding:10px 13px;color:#267653;font-size:12px;font-weight:800;box-shadow:0 5px 15px rgba(33,136,86,.06);transition:.2s}.action:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(33,136,86,.12)}.action.primary{background:linear-gradient(135deg,#1cbd78,#15965e);color:#fff;border-color:transparent}.action.active{background:#e5fff0;border-color:#8cd8ae;color:#0e8852}
+    .hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin:8px 0 18px}.eyebrow{color:#159b62;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}.hero h2{font:900 clamp(26px,3.4vw,38px)/1.12 'Nunito',sans-serif;margin:7px 0 8px;letter-spacing:-1px}.hero p{max-width:720px;margin:0;color:#648078;font-size:13px;line-height:1.7}.hero-note{padding:12px 16px;border:1px solid #d9f0e2;border-radius:17px;background:linear-gradient(135deg,#f0fff5,#fff);color:#4a7963;font-size:12px;line-height:1.55;min-width:190px}.hero-note b{display:block;color:#138d58;font-size:13px;margin-bottom:3px}
+    .workspace{display:grid;grid-template-columns:255px minmax(350px,1fr) 355px;gap:16px;align-items:stretch}.panel{background:#ffffffed;border:1px solid #e0efe7;border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}.side-list{padding:17px 14px 14px;display:flex;flex-direction:column;min-height:690px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 2px 13px}.panel-heading h3{font:900 16px 'Nunito',sans-serif;margin:0}.count{font-size:10px;font-weight:900;color:#15965d;background:#e7fff0;padding:6px 9px;border-radius:99px}.search{width:100%;border:1px solid #e0eee6;border-radius:12px;padding:11px 12px 11px 37px;outline:none;background:#f9fffb;color:var(--ink);font-size:12px}.search:focus{border-color:#63c993;box-shadow:0 0 0 3px #dff9e9}.search-wrap{position:relative;margin-bottom:12px}.search-wrap:before{content:'⌕';position:absolute;left:13px;top:5px;font-size:23px;color:#6ba88a}.part-list{display:flex;flex-direction:column;gap:5px;overflow:auto;max-height:530px;padding-right:3px}.part-item{display:flex;align-items:center;gap:9px;text-align:left;border:1px solid transparent;background:transparent;padding:9px 8px;border-radius:12px;color:#456a5a;transition:.15s;min-height:44px}.part-item:hover{background:#f1fff6}.part-item.selected{background:linear-gradient(90deg,#e4fff0,#f6fff9);border-color:#bde9ce;color:#117a4c;box-shadow:inset 3px 0 #19b66e}.part-num{width:25px;height:25px;flex:0 0 25px;border-radius:9px;background:#eff7f1;color:#729184;display:grid;place-items:center;font:800 11px 'Nunito'}.part-item.selected .part-num{background:#21b876;color:#fff}.part-name{font-size:11.5px;font-weight:700;line-height:1.35;flex:1}.part-dot{width:7px;height:7px;border-radius:50%;background:#94d6ad}.list-foot{margin-top:auto;border-top:1px solid #e9f3ed;padding:13px 4px 0;color:#88a196;font-size:10px;line-height:1.6}.keyboard{display:inline-block;padding:2px 5px;border:1px solid #dcebe2;border-radius:5px;background:#f9fffb;color:#638273;font-weight:800}
+    .center-col{display:flex;flex-direction:column;gap:12px;min-width:0}.scene-panel{position:relative;overflow:hidden;min-height:585px;background:radial-gradient(ellipse at 50% 44%,#f5ffe6 0%,#edfff4 34%,#e8f8fa 70%,#eff7ff 100%);border:1px solid #dcefe4;border-radius:var(--radius);box-shadow:var(--shadow)}.scene-panel:before,.scene-panel:after{content:'';position:absolute;border-radius:50%;pointer-events:none;filter:blur(1px)}.scene-panel:before{width:240px;height:240px;right:-100px;top:-115px;background:#c9ffe0aa}.scene-panel:after{width:180px;height:180px;left:-90px;bottom:-80px;background:#cceaff88}#scene{position:absolute;inset:0;z-index:1;touch-action:none}#scene canvas{display:block;width:100%;height:100%;outline:none}.scene-top{position:absolute;z-index:3;left:18px;right:18px;top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none}.scene-label{pointer-events:auto;background:#ffffffd9;border:1px solid #d9eee1;border-radius:12px;padding:8px 11px;box-shadow:0 6px 18px #24613a0c}.scene-label b{font:900 12px 'Nunito';display:block;color:#1b7951}.scene-label span{display:block;color:#739084;font-size:9px;margin-top:2px}.scene-tools{display:flex;gap:6px;pointer-events:auto}.icon-btn{width:36px;height:36px;border-radius:11px;border:1px solid #d6ebdf;background:#ffffffdf;color:#438061;font-size:16px;box-shadow:0 5px 12px #245e3b0a}.icon-btn:hover,.icon-btn.active{background:#e5fff0;border-color:#8ed6a9;color:#11844f}.scene-bottom{position:absolute;z-index:3;bottom:15px;left:15px;right:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;pointer-events:none}.scene-hint{background:#ffffffd9;border:1px solid #dceee3;border-radius:11px;padding:8px 11px;color:#678478;font-size:10px;line-height:1.4;pointer-events:auto}.scene-hint b{color:#25845a}.selected-chip{background:#147d51;color:#fff;border-radius:11px;padding:8px 12px;font-size:11px;font-weight:800;box-shadow:0 8px 18px #16835430;pointer-events:auto;max-width:50%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.legend-layer{position:absolute;inset:0;z-index:2;pointer-events:none;display:none}.legend-layer.show{display:block}.scene-tag{position:absolute;transform:translate(-50%,-50%);padding:4px 7px;background:#ffffffdf;border:1px solid #cdebd8;border-radius:8px;color:#2c7450;font-size:9px;font-weight:800;white-space:nowrap;box-shadow:0 3px 10px #164a2c13}.scene-tools .mini-caption{font-size:10px;color:#6a8d7b;align-self:center;padding:0 4px}
+    .quick-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.fact-card{background:#fff;border:1px solid #e1f0e7;border-radius:15px;padding:12px 14px;display:flex;gap:10px;align-items:center;min-width:0}.fact-ico{width:34px;height:34px;border-radius:12px;background:#eafff1;color:#16945d;display:grid;place-items:center;font-size:17px;flex:0 0 auto}.fact-card b{font:900 12px 'Nunito';display:block}.fact-card span{font-size:10px;color:#789287;display:block;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .detail-panel{padding:18px;min-height:690px;display:flex;flex-direction:column}.detail-kicker{font-size:10px;font-weight:900;color:#18a266;letter-spacing:1.4px;text-transform:uppercase}.detail-title{font:900 23px/1.15 'Nunito',sans-serif;margin:7px 0 7px;letter-spacing:-.4px}.detail-sub{margin:0;color:#718c80;font-size:11px;line-height:1.6}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0 12px}.tag{font-size:9px;font-weight:800;background:#f0faf3;color:#4e8968;border:1px solid #e0f1e5;border-radius:99px;padding:5px 8px}.tabs{display:flex;gap:3px;padding:4px;border-radius:12px;background:#f2faf5;margin:5px 0 13px}.tab{flex:1;border:0;border-radius:9px;background:transparent;padding:8px 4px;color:#779186;font-size:10px;font-weight:800}.tab.active{background:white;color:#168653;box-shadow:0 2px 8px #1b694014}.detail-content{overflow:auto;max-height:480px;padding:0 2px 4px}.info-block{margin-bottom:13px}.info-block h4{font:900 12px 'Nunito';margin:0 0 5px;color:#2a694d;display:flex;align-items:center;gap:6px}.info-block p{margin:0;color:#536e62;font-size:10.7px;line-height:1.75}.info-block ul{margin:5px 0 0;padding-left:17px;color:#536e62;font-size:10.5px;line-height:1.72}.info-block li{padding-left:2px;margin:2px 0}.science-note{border-left:3px solid #efc15c;background:#fffbef;padding:10px 11px;border-radius:0 10px 10px 0;color:#786238;font-size:10px;line-height:1.65;margin:12px 0}.chem-eq{background:#f0fbf7;border:1px solid #dff1e6;border-radius:10px;padding:10px;color:#247653;font:700 11px 'Nunito';margin-top:8px;line-height:1.5}.detail-nav{display:flex;justify-content:space-between;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid #eaf3ed}.detail-nav button{border:1px solid #dcefe3;background:#fff;color:#3b7d5d;padding:8px 10px;border-radius:10px;font-size:10px;font-weight:800}.detail-nav button:hover{background:#effff5}
+    .quiz-view{display:none;padding:26px;min-height:585px}.quiz-view.active{display:block;grid-column:1/-1}.quiz-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.quiz-head h3{font:900 24px 'Nunito';margin:3px 0 6px}.quiz-head p{font-size:12px;color:#718c80;margin:0;line-height:1.6}.quiz-progress{height:8px;background:#eaf5ee;border-radius:99px;overflow:hidden;margin:20px 0 22px}.quiz-progress span{display:block;height:100%;background:linear-gradient(90deg,#25c77c,#8fdc7d);width:0;transition:.3s}.quiz-number{font-size:10px;font-weight:900;color:#1a9a60;background:#e9fff1;padding:7px 10px;border-radius:99px;white-space:nowrap}.question{font:800 19px/1.45 'Nunito';max-width:750px;margin:14px 0 18px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #deeee4;background:#fff;border-radius:14px;padding:14px;text-align:left;color:#486b5b;font-size:12px;font-weight:700;line-height:1.5;min-height:58px}.answer:hover{border-color:#86d4a5;background:#f6fff8}.answer.correct{border-color:#48c486;background:#eafff1;color:#137a4d}.answer.wrong{border-color:#f0a19b;background:#fff1ef;color:#a94d45}.quiz-feedback{display:none;margin:16px 0;padding:13px 15px;border-radius:13px;background:#f2fbf5;color:#47735b;font-size:11px;line-height:1.65}.quiz-feedback.show{display:block}.quiz-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}.quiz-result{text-align:center;padding:40px 10px}.quiz-result .score{font:900 55px 'Nunito';color:#15985d}.quiz-result h3{font:900 25px 'Nunito';margin:5px}
+    .below{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}.below-card{padding:17px 18px}.below-card h3{font:900 15px 'Nunito';margin:0 0 10px}.reference-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.reference-grid figure{margin:0;border:1px solid #e3efe7;border-radius:12px;overflow:hidden;background:#f8fff9}.reference-grid img{width:100%;height:150px;object-fit:contain;display:block;background:#fff}.reference-grid figcaption{padding:8px 10px;color:#6d887b;font-size:9px;font-weight:700}.guide-list{display:flex;flex-direction:column;gap:9px}.guide-row{display:flex;align-items:flex-start;gap:9px;color:#587468;font-size:10.5px;line-height:1.6}.guide-num{width:23px;height:23px;display:grid;place-items:center;border-radius:8px;background:#e8fff0;color:#14945c;font:900 11px 'Nunito';flex:0 0 auto}
+    .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding:0 4px;color:#91a79b;font-size:10px}.footer b{color:#53836a}.modal-backdrop{position:fixed;inset:0;background:#153b2e55;z-index:20;display:none;place-items:center;padding:18px}.modal-backdrop.show{display:grid}.modal{background:#fff;border:1px solid #e0eee5;border-radius:20px;padding:22px;max-width:560px;width:100%;box-shadow:0 25px 70px #133f2b40}.modal h3{font:900 20px 'Nunito';margin:0 0 9px}.modal p{font-size:12px;color:#627c70;line-height:1.75}.modal .action{margin-top:8px}
+    @media(max-width:1180px){.workspace{grid-template-columns:225px minmax(300px,1fr)}.detail-panel{grid-column:1/-1;min-height:unset}.detail-content{max-height:unset}.detail-panel .detail-nav{margin-top:10px}.part-list{max-height:550px}}
+    @media(max-width:760px){.app{padding:13px 12px 28px}.topbar{align-items:flex-start}.brand-mark{width:40px;height:40px;border-radius:13px}.brand h1{font-size:18px}.brand p{font-size:10px}.top-actions .pill{display:none}.hero{display:block;margin:8px 0 14px}.hero h2{font-size:28px}.hero p{font-size:11px}.hero-note{margin-top:12px;min-width:0}.workspace{display:flex;flex-direction:column;gap:12px}.side-list{min-height:unset;padding:14px}.part-list{display:grid;grid-template-columns:1fr 1fr;max-height:260px}.list-foot{display:none}.scene-panel{min-height:420px;height:58vh;max-height:590px;order:-1}.scene-top{left:10px;right:10px;top:10px}.scene-label{padding:7px 9px}.scene-label span{font-size:8px}.scene-tools{gap:4px}.icon-btn{width:32px;height:32px}.scene-bottom{left:9px;right:9px;bottom:9px}.scene-hint{font-size:9px;padding:7px 8px}.selected-chip{font-size:9px;padding:7px 9px}.quick-facts{gap:7px}.fact-card{padding:9px 8px;gap:7px}.fact-ico{width:28px;height:28px;font-size:14px}.fact-card b{font-size:10px}.fact-card span{font-size:8px}.detail-panel{padding:15px;min-height:unset}.detail-title{font-size:21px}.detail-content{max-height:none}.answers{grid-template-columns:1fr}.quiz-view{padding:18px;min-height:480px}.quiz-head h3{font-size:21px}.question{font-size:17px}.below{grid-template-columns:1fr}.reference-grid img{height:125px}.footer{display:block;line-height:1.8}}
+    @media(max-width:390px){.brand h1{font-size:16px}.top-actions .action{padding:8px 9px;font-size:10px}.part-list{grid-template-columns:1fr}.scene-panel{height:440px}.scene-tools .mini-caption{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+  <style>
+    #scenePanel{aspect-ratio:1448/1079;height:auto;min-height:0}
+    #scene{display:grid;place-items:center}
+    #scenePanel{touch-action:none;cursor:grab}
+    #scenePanel.dragging{cursor:grabbing}
+    #modelContent{position:absolute;left:50%;top:50%;transform-origin:center;touch-action:none;user-select:none}
+    #plantCellImage{display:block;width:100%;height:100%;pointer-events:none}
+    .legend-layer{position:absolute;inset:0;z-index:2;display:none}
+    .legend-layer.show{display:block}
+    .scene-tag{position:absolute;transform:translate(-50%,-50%);width:clamp(27px,4.8%,34px);height:clamp(27px,4.8%,34px);padding:0;border:2px solid #e8ed30;border-radius:50%;background:#18a943;color:#fff;font:900 12px/1 'Nunito',sans-serif;box-shadow:0 1px 5px #123c2a55;pointer-events:auto;touch-action:none;cursor:pointer}
+    .scene-tag:hover,.scene-tag.selected{background:#18a943;border-color:#fff36a;color:#fff;box-shadow:0 0 0 3px #14965b80,0 1px 5px #123c2a55}
+    .scene-tools{gap:4px}
+    .zoom-level{align-self:center;min-width:42px;text-align:center;color:#497264;font-size:10px;font-weight:800}
+    @media(max-width:760px){#scenePanel{aspect-ratio:auto;height:440px}.scene-tag{width:29px;height:29px;font-size:11px}}
+    @media(max-width:390px){#scenePanel{height:440px}.scene-tag{width:27px;height:27px;font-size:10px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">✿</div>
+      <div><h1>PLANT CELL LAB</h1><p>LỚP 10/1 · THPT HOÀNG DIỆU</p></div>
+    </div>
+    <div class="top-actions">
+      <div class="pill">🧬 <strong>SINH HỌC 10+</strong> · Chuyên sâu</div>
+      <button class="action" id="helpBtn">ⓘ Hướng dẫn</button>
+      <button class="action primary" id="quizBtn">✦ Ôn tập kiến thức</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div><div class="eyebrow">PHÒNG THÍ NGHIỆM TẾ BÀO SỐ</div><h2>Khám phá tế bào thực vật</h2><p>Quan sát mô hình minh họa, chọn tên từng thành phần và khám phá cách chúng phối hợp để duy trì sự sống của tế bào thực vật.</p></div>
+    <div class="hero-note"><b>🔬 Học bằng khám phá</b>Chọn nhãn trên hình hoặc tên trong danh sách để tìm hiểu từng thành phần.</div>
+  </section>
+
+  <main class="workspace" id="exploreView">
+    <aside class="panel side-list">
+      <div class="panel-heading"><h3>Thành phần tế bào</h3><span class="count">14 PHẦN</span></div>
+      <div class="search-wrap"><input class="search" id="searchInput" type="search" placeholder="Tìm bào quan..." aria-label="Tìm thành phần tế bào" /></div>
+      <div class="part-list" id="partList" aria-label="Danh sách 14 thành phần"></div>
+      <div class="list-foot">Số trên hình khớp với số thứ tự trong danh sách. Chọn một mục để xem hồ sơ chi tiết. Dùng phím <span class="keyboard">Tab</span> và <span class="keyboard">Enter</span> để điều hướng.</div>
+    </aside>
+
+    <section class="center-col">
+      <div class="scene-panel" id="scenePanel">
+        <div id="scene" aria-label="Hình mô hình tế bào thực vật có thể phóng to và thu nhỏ">
+          <div id="modelContent">
+            <img id="plantCellImage" src="assets/mo-hinh-3d-tham-khao.png" alt="Mô hình tế bào thực vật có số thứ tự tại đầu mũi tên chỉ từng thành phần" />
+            <div class="legend-layer show" id="legendLayer" aria-label="Số thứ tự các thành phần tế bào"></div>
+          </div>
+        </div>
+        <div class="scene-top">
+          <div class="scene-label"><b>MÔ HÌNH TẾ BÀO THỰC VẬT</b><span>Số trên hình khớp với danh sách</span></div>
+          <div class="scene-tools">
+            <button class="icon-btn" id="zoomOutBtn" title="Thu nhỏ mô hình" aria-label="Thu nhỏ mô hình">−</button>
+            <span class="zoom-level" id="zoomLevel" aria-live="polite">100%</span>
+            <button class="icon-btn" id="zoomInBtn" title="Phóng to mô hình" aria-label="Phóng to mô hình">+</button>
+            <button class="icon-btn" id="zoomResetBtn" title="Đặt lại kích thước mô hình" aria-label="Đặt lại kích thước mô hình">↺</button>
+            <button class="icon-btn active" id="labelsBtn" title="Hiện hoặc ẩn nhãn" aria-label="Hiện hoặc ẩn nhãn">⌁</button>
+          </div>
+        </div>
+        <div class="scene-bottom"><div class="scene-hint"><b>Gợi ý thao tác</b> · Lăn chuột, chụm hai ngón hoặc dùng nút +/− để thu phóng</div><div class="selected-chip" id="selectedChip">Chọn một thành phần để bắt đầu</div></div>
+      </div>
+      <div class="quick-facts">
+        <div class="fact-card"><div class="fact-ico">🧱</div><div><b>Vách bảo vệ</b><span>Thành tế bào & màng sinh chất</span></div></div>
+        <div class="fact-card"><div class="fact-ico">⚡</div><div><b>Chuyển hóa năng lượng</b><span>Lục lạp & ti thể</span></div></div>
+        <div class="fact-card"><div class="fact-ico">🧬</div><div><b>Điều khiển & tổng hợp</b><span>Nhân, ribôxôm, lưới nội chất</span></div></div>
+      </div>
+    </section>
+
+    <aside class="panel detail-panel" id="detailPanel">
+      <div class="detail-kicker" id="detailKicker">HỒ SƠ BÀO QUAN · 01 / 14</div>
+      <h3 class="detail-title" id="detailTitle">Thành tế bào</h3>
+      <p class="detail-sub" id="detailSub">Lớp cấu trúc vững chắc bao phía ngoài màng sinh chất, giúp bảo vệ và định hình tế bào thực vật.</p>
+      <div class="tag-row" id="detailTags"></div>
+      <div class="tabs" role="tablist" aria-label="Các nhóm thông tin">
+        <button class="tab active" data-tab="overview" role="tab" aria-selected="true">Tổng quan</button>
+        <button class="tab" data-tab="properties" role="tab" aria-selected="false">Tính chất</button>
+        <button class="tab" data-tab="advanced" role="tab" aria-selected="false">Nâng cao</button>
+      </div>
+      <div class="detail-content" id="detailContent" aria-live="polite"></div>
+      <div class="detail-nav"><button id="prevBtn">← Phần trước</button><button id="nextBtn">Phần tiếp theo →</button></div>
+    </aside>
+
+    <section class="panel quiz-view" id="quizView">
+      <div class="quiz-head"><div><div class="detail-kicker">KIỂM TRA NHANH · SINH HỌC 10+</div><h3>Thử thách hiểu biết tế bào</h3><p>Trả lời các câu hỏi về cấu trúc, chức năng và sự phối hợp giữa các bào quan.</p></div><span class="quiz-number" id="quizNumber">CÂU 1 / 8</span></div>
+      <div class="quiz-progress"><span id="quizProgress"></span></div>
+      <div id="quizBody"></div>
+    </section>
+  </main>
+
+  <section class="below">
+    <article class="panel below-card">
+      <h3>Hình tham chiếu từ nhóm học tập</h3>
+      <div class="reference-grid">
+        <figure><img src="assets/mo-hinh-3d-tham-khao.png" alt="Hình mô hình tế bào thực vật được dùng trong phần khám phá" /><figcaption>Mô hình tế bào thực vật đang hiển thị ở trên</figcaption></figure>
+        <figure><img src="assets/so-do-14-thanh-phan.png" alt="Sơ đồ tế bào thực vật có chú thích các thành phần" /><figcaption>Sơ đồ đối chiếu tên các thành phần tế bào</figcaption></figure>
+      </div>
+    </article>
+    <article class="panel below-card">
+      <h3>Cách sử dụng mô hình</h3>
+      <div class="guide-list">
+        <div class="guide-row"><span class="guide-num">1</span><span><b>Quan sát mô hình:</b> Dùng nút +/−, lăn chuột hoặc chụm hai ngón để thu phóng; kéo hình để di chuyển khi đang phóng to.</span></div>
+        <div class="guide-row"><span class="guide-num">2</span><span><b>Chọn thành phần:</b> Số trên hình nằm tại đầu mũi tên và khớp với số thứ tự trong danh sách bên trái.</span></div>
+        <div class="guide-row"><span class="guide-num">3</span><span><b>Đào sâu kiến thức:</b> Đọc các thẻ Tổng quan, Tính chất và Nâng cao; dùng nút trước / tiếp theo để chuyển mục.</span></div>
+        <div class="guide-row"><span class="guide-num">4</span><span><b>Tự kiểm tra:</b> Chọn “Ôn tập kiến thức” để làm bộ câu hỏi trắc nghiệm và xem giải thích.</span></div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="footer"><span><b>PLANT CELL LAB</b> · Sản phẩm học tập Lớp 10/1 – THPT Hoàng Diệu</span><span>Nhóm: Quang Trọng, Văn Sơn, Mỹ Hạnh, Ngọc Diệp, Hoài Thương.</span></footer>
+</div>
+
+<div class="modal-backdrop" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+  <div class="modal"><h3 id="helpTitle">Hướng dẫn khám phá mô hình</h3><p><b>Thu phóng:</b> dùng nút +/−, lăn chuột hoặc chụm hai ngón trên màn hình cảm ứng; kéo hình để di chuyển.</p><p><b>Chọn thành phần:</b> số tại đầu mũi tên khớp với số thứ tự trong danh sách; chọn số hoặc tên để mở hồ sơ.</p><p><b>Hiện hoặc ẩn số:</b> dùng nút ở góc trên của hình. Hình minh họa không thể hiện đúng tỉ lệ kích thước và số lượng bào quan trong tế bào thật.</p><button class="action primary" id="closeHelp">Đã hiểu</button></div>
+</div>
+
+<script>
+const parts = [
+ {id:'wall',name:'Thành tế bào',en:'Cell wall',short:'Lớp vách cứng bên ngoài màng sinh chất.',group:'Bảo vệ & nâng đỡ',tags:['Cellulose','Vách ngoài','Nâng đỡ'],structure:'Gồm phiến giữa giàu pectin, thành sơ cấp chứa cellulose – hemicellulose – pectin và thành thứ cấp ở một số tế bào đã biệt hóa. Các vi sợi cellulose được đặt trong nền polysaccharide; lỗ sinh chất tạo cầu nối giữa tế bào kề nhau.',features:['Nằm ngoài màng sinh chất; không phải là màng tế bào.','Có độ bền cơ học nhưng vẫn có thể biến đổi khi tế bào đang lớn.','Thành thứ cấp có thể hóa gỗ do tích lũy lignin.'],functions:['Bảo vệ tế bào trước tác động cơ học và một số tác nhân gây hại.','Giữ hình dạng, chống tế bào trương nước quá mức làm vỡ.','Kết nối cơ học với tế bào lân cận và tham gia trao đổi qua lỗ sinh chất.'],roles:'Thành tế bào góp phần tạo độ cứng của mô và nâng đỡ toàn cây. Sự thay đổi thành tế bào cho phép tế bào vừa tăng kích thước vừa duy trì hình dạng.',physical:'Có độ bền kéo và nén cao; thành sơ cấp thường linh hoạt hơn thành thứ cấp. Tính thấm của thành nhìn chung cao hơn màng sinh chất, nhưng không có nghĩa mọi chất đều khuếch tán hoàn toàn không giới hạn.',chemical:'Cellulose là các chuỗi β-(1→4)-glucan kết hợp thành vi sợi nhờ liên kết hydro. Nền thành chứa hemicellulose và pectin; một số thành có lignin, suberin hoặc cutin.',biological:'Phức hợp cellulose synthase trên màng sinh chất tổng hợp cellulose. Plasmodesmata đi qua thành tế bào, tạo liên hệ bào tương giữa các tế bào.',advanced:'Ở thành sơ cấp, vi sợi cellulose được sắp xếp trong nền pectin và hemicellulose. Hướng sắp xếp của vi sợi góp phần định hướng sự giãn dài của tế bào. Lignin làm thành cứng hơn; suberin và cutin góp phần tạo hàng rào hạn chế mất nước.',correction:'Cần phân biệt: thành tế bào là lớp vách nằm ngoài màng sinh chất, không phải một “lớp màng”. Tính thấm của thành tế bào không đồng nghĩa với tính thấm chọn lọc của màng sinh chất.'},
+ {id:'membrane',name:'Màng tế bào',en:'Plasma membrane',short:'Ranh giới sống có tính thấm chọn lọc giữa tế bào và môi trường.',group:'Bảo vệ & nâng đỡ',tags:['Khảm động','Thấm chọn lọc','Vận chuyển'],structure:'Màng sinh chất gồm lớp kép phospholipid, protein xuyên màng và protein bám màng; ở thực vật có các sterol thực vật (phytosterol) góp phần điều hòa tính chất màng. Một số protein và lipid liên kết với chuỗi carbohydrate.',features:['Rất mỏng, linh động và có cấu trúc khảm động.','Đầu ưa nước của phospholipid hướng ra môi trường nước; đuôi kỵ nước quay vào nhau.','Có kênh, chất tải và bơm vận chuyển chuyên biệt.'],functions:['Bao bọc tế bào chất và phân định môi trường trong – ngoài.','Điều hòa chất đi vào và đi ra bằng vận chuyển thụ động hoặc chủ động.','Tiếp nhận tín hiệu và tham gia nhận diện tế bào.'],roles:'Màng sinh chất duy trì cân bằng nội môi, điều phối trao đổi vật chất và giúp tế bào phản ứng với thay đổi của môi trường.',physical:'Có tính lỏng và linh hoạt; có thể tự khép kín những gián đoạn nhỏ trong điều kiện thích hợp. Độ lỏng phụ thuộc thành phần lipid, nhiệt độ và protein màng.',chemical:'Thành phần chủ yếu là lipid và protein, ngoài ra có carbohydrate gắn với lipid hoặc protein. Phospholipid có tính lưỡng cực: đầu phân cực ưa nước, đuôi hydrocarbon kỵ nước.',biological:'Khuếch tán đơn giản, khuếch tán được hỗ trợ và thẩm thấu là các dạng vận chuyển thụ động. Vận chuyển chủ động cần năng lượng trực tiếp hoặc gián tiếp; xuất bào đưa vật chất ra ngoài tế bào.',advanced:'Mô hình khảm động giải thích khả năng protein màng di chuyển trong lớp lipid. Ở thực vật, thụ thể và hệ truyền tin liên quan đến các hormone như auxin và acid abscisic giúp tế bào điều chỉnh sinh trưởng, đóng mở khí khổng và đáp ứng stress.',correction:'Cholesterol là sterol đặc trưng phổ biến ở màng tế bào động vật; màng thực vật có các phytosterol như sitosterol, campesterol và stigmasterol.'},
+ {id:'cytoplasm',name:'Tế bào chất',en:'Cytoplasm',short:'Môi trường nội bào nơi các bào quan hoạt động và phối hợp.',group:'Môi trường & điều phối',tags:['Cytosol','Keo sinh học','Chuyển hóa'],structure:'Theo cách dùng trong tài liệu học tập, tế bào chất gồm chất nền tế bào (cytosol), các bào quan và hệ thống khung xương tế bào ở vùng ngoài nhân. Cytosol là môi trường nước chứa ion, protein và các chất chuyển hóa.',features:['Có tính chất của hệ keo; độ nhớt thay đổi theo trạng thái tế bào.','Có thể diễn ra dòng vận động tế bào chất (cyclosis).','Chứa nhiều hệ enzyme và các chất trung gian chuyển hóa.'],functions:['Là môi trường cho nhiều phản ứng trao đổi chất.','Tạo không gian cho bào quan, enzyme và cơ chất tương tác.','Hỗ trợ vận chuyển vật chất trong tế bào.'],roles:'Tế bào chất giúp liên kết hoạt động của các bào quan thành một hệ thống thống nhất; nhiều con đường chuyển hóa diễn ra trong cytosol.',physical:'Có tính nhớt và đàn hồi của hệ keo; có thể biến đổi trạng thái sol – gel ở một số vùng và điều kiện sinh lý.',chemical:'Chứa nước với tỉ lệ cao, ion khoáng như K⁺, Mg²⁺, phosphate, protein, đường, amino acid và nhiều chất chuyển hóa. Thành phần thay đổi tùy loại tế bào và trạng thái sinh lý.',biological:'Đường phân (glycolysis) diễn ra trong bào tương/cytosol. Dòng tế bào chất có thể giúp phân phối chất dinh dưỡng và bào quan.',advanced:'Dòng tế bào chất liên quan đến mạng actin và protein vận động myosin. Ở tế bào thực vật lớn, vận động này hỗ trợ trao đổi chất trong vùng tế bào chất còn lại giữa không bào trung tâm và màng sinh chất.',correction:'Trong nhiều tài liệu phổ thông, “tế bào chất” được dùng rộng để chỉ cytosol cùng các bào quan ngoài nhân. Khi phân tích chuyên sâu, nên phân biệt rõ cytosol (dịch bào tương) với toàn bộ cytoplasm.'},
+ {id:'nucleus',name:'Nhân',en:'Nucleus',short:'Trung tâm lưu giữ thông tin di truyền và điều hòa biểu hiện gene.',group:'Điều khiển & tổng hợp',tags:['DNA','Màng kép','Biểu hiện gene'],structure:'Nhân có màng nhân kép với các lỗ nhân; màng ngoài liên tục với lưới nội chất. Bên trong là dịch nhân, chất nhiễm sắc gồm DNA liên kết với protein histone và hạch nhân.',features:['Thường có dạng cầu hoặc bầu dục.','Màng nhân có lỗ điều tiết trao đổi giữa nhân và tế bào chất.','Chất nhiễm sắc co xoắn thành nhiễm sắc thể khi phân bào.'],functions:['Lưu giữ và truyền đạt thông tin di truyền.','Điều hòa hoạt động tế bào thông qua kiểm soát biểu hiện gene.','Là nơi nhân đôi DNA và phiên mã tạo RNA nhân.'],roles:'Nhân điều phối nhiều hoạt động của tế bào, quyết định loại protein được tổng hợp và thời điểm tổng hợp thông qua điều hòa gene.',physical:'Được ngăn cách với tế bào chất bởi màng nhân kép; hình dạng và kích thước thay đổi theo loại tế bào và trạng thái hoạt động.',chemical:'Chứa DNA, RNA, protein histone và nhiều protein tham gia sao chép, sửa chữa DNA, phiên mã và xử lý RNA.',biological:'DNA nhân đôi trước phân bào; các gene được phiên mã thành RNA. mRNA trưởng thành được vận chuyển qua lỗ nhân tới tế bào chất để dịch mã.',advanced:'Tính toàn năng của tế bào thực vật là cơ sở cho nuôi cấy mô và tái sinh cây trong điều kiện thích hợp. Tuy nhiên, không phải mọi tế bào đều biểu hiện toàn bộ gene cùng lúc; biểu hiện gene được điều hòa chặt chẽ.',correction:'Hạch nhân là cấu trúc nằm bên trong nhân và được tách thành mục riêng trong mô hình học tập này; nó không phải một bào quan có màng độc lập.'},
+ {id:'nucleolus',name:'Hạch nhân (nhân con)',en:'Nucleolus',short:'Vùng trong nhân chuyên tổng hợp rRNA và lắp ráp tiểu đơn vị ribosome.',group:'Điều khiển & tổng hợp',tags:['rRNA','Lắp ráp ribosome','Không màng'],structure:'Hạch nhân là vùng đậm đặc trong nhân, không có màng bao riêng. Nó tập trung các vùng DNA mã hóa rRNA, rRNA mới tổng hợp và protein tham gia lắp ráp ribosome.',features:['Có thể quan sát như một vùng đậm trong nhân dưới kính hiển vi thích hợp.','Kích thước thường liên quan đến cường độ sinh tổng hợp ribosome.','Biến đổi hình thái trong chu kỳ phân bào.'],functions:['Tổng hợp phần lớn rRNA của ribosome.','Kết hợp rRNA với protein để tạo các tiểu đơn vị ribosome.','Tham gia điều hòa một số quá trình đáp ứng stress tế bào.'],roles:'Hạch nhân hỗ trợ năng lực tổng hợp protein của tế bào bằng cách cung cấp tiểu đơn vị ribosome cho tế bào chất.',physical:'Là vùng có mật độ phân tử cao, không có màng giới hạn; hình thái thay đổi theo hoạt động phiên mã rRNA và chu kỳ tế bào.',chemical:'Giàu rRNA, protein ribosome và các phân tử RNA/protein tham gia xử lý rRNA.',biological:'Trong phân bào, hạch nhân thường mất cấu trúc rõ ở đầu kỳ và tái hình thành ở cuối kỳ khi hoạt động phiên mã rRNA được khôi phục.',advanced:'Tế bào mô phân sinh đang phân chia mạnh thường có hoạt động tổng hợp ribosome cao và hạch nhân nổi bật. Đây là mối liên hệ giữa nhu cầu protein và cấu trúc nhân.',correction:'Hạch nhân không tự tạo hoàn chỉnh ribosome trưởng thành; các tiểu đơn vị được hoàn thiện thêm và kết hợp trong tế bào chất.'},
+ {id:'er',name:'Lưới nội chất',en:'Endoplasmic reticulum (RER / SER)',short:'Hệ thống màng tham gia tổng hợp, xử lý và vận chuyển protein – lipid.',group:'Điều khiển & tổng hợp',tags:['Lưới hạt RER','Lưới trơn SER','Hệ nội màng'],structure:'Là mạng lưới túi dẹt và ống màng đơn liên thông. Lưới nội chất hạt (RER) có ribosome bám ở mặt hướng tế bào chất; lưới nội chất trơn (SER) không có ribosome bám.',features:['Liên tục với màng ngoài của màng nhân.','RER thường phát triển ở tế bào tiết nhiều protein.','SER thường phát triển ở tế bào có hoạt động tổng hợp lipid hoặc chuyển hóa đặc thù.'],functions:['RER tổng hợp và xử lý ban đầu protein tiết, protein màng và protein đi vào hệ nội màng.','SER tham gia tổng hợp lipid, chuyển hóa carbohydrate, khử độc và dự trữ Ca²⁺ ở một số tế bào.','Tạo túi vận chuyển đưa sản phẩm đến bộ Golgi.'],roles:'Lưới nội chất là trung tâm sinh tổng hợp và là trạm trung chuyển trong hệ thống nội màng, kết nối hoạt động của nhân, Golgi và màng sinh chất.',physical:'Hệ màng đơn dạng ống và xoang dẹt, liên tục biến đổi hình dạng và diện tích theo hoạt động tế bào.',chemical:'Màng gồm phospholipid và nhiều protein màng/enzyme. Bề mặt RER có ribosome; lòng lưới có enzyme và protein hỗ trợ gấp cuộn.',biological:'RER hỗ trợ gấp cuộn và biến đổi protein mới tổng hợp; SER tham gia tạo lipid và các phản ứng chuyển hóa. Túi vận chuyển nảy chồi từ ER để đưa hàng đến Golgi.',advanced:'Ở cầu sinh chất (plasmodesmata), một ống có nguồn gốc từ lưới nội chất gọi là desmotubule đi xuyên qua kênh nối hai tế bào. Cấu trúc này không nên diễn đạt đơn giản là toàn bộ SER “đâm xuyên” qua thành tế bào.',correction:'Trong một số tế bào thực vật, hệ thống SER/RER có sự liên tục về màng; chức năng dự trữ Ca²⁺ và khử độc có mức độ khác nhau tùy loại mô.'},
+ {id:'mitochondria',name:'Ti thể',en:'Mitochondrion',short:'Bào quan chuyển năng lượng từ chất hữu cơ thành ATP qua hô hấp tế bào.',group:'Năng lượng & chuyển hóa',tags:['Màng kép','Cristae','ATP'],structure:'Ti thể có màng ngoài và màng trong. Màng trong gấp nếp thành mào ti thể (cristae); bên trong là chất nền (matrix) chứa enzyme, DNA ti thể và ribosome.',features:['Hình dạng thường dạng hạt, que hoặc sợi; có thể thay đổi và hợp nhất – phân chia.','Có hệ gene và ribosome riêng.','Số lượng và hình thái thay đổi theo nhu cầu năng lượng của tế bào.'],functions:['Diễn ra chu trình Krebs trong chất nền.','Chuỗi truyền electron và phosphoryl hóa oxy hóa diễn ra ở màng trong.','Tạo ATP cung cấp năng lượng cho các hoạt động tế bào.'],roles:'Ti thể cung cấp phần lớn ATP dùng cho vận chuyển chủ động, sinh tổng hợp, duy trì gradient ion và các hoạt động sống khác.',physical:'Màng trong có diện tích lớn nhờ các mào; màng ngoài bao bọc toàn bộ bào quan. Ti thể có tính động, có thể di chuyển trong tế bào.',chemical:'Chứa enzyme hô hấp, các phức hợp chuỗi truyền electron, ATP synthase, DNA và RNA/protein ti thể.',biological:'Hô hấp hiếu khí sử dụng sản phẩm phân giải chất hữu cơ và oxy để tạo ATP; CO₂, H₂O là sản phẩm của các giai đoạn tương ứng.',advanced:'Thuyết nội cộng sinh cho rằng ti thể có nguồn gốc từ vi khuẩn hiếu khí cổ đại sống cộng sinh bên trong tế bào nhân thực tổ tiên. DNA riêng, ribosome riêng và màng kép là một số bằng chứng được nêu trong giả thuyết.',correction:'Ribosome ti thể ở thực vật không nhất thiết giống hoàn toàn ribosome 70S điển hình của vi khuẩn; mô hình phổ thông thường giản lược là dạng gần 70S.'},
+ {id:'cytoskeleton',name:'Khung xương tế bào',en:'Cytoskeleton',short:'Mạng protein động giúp tổ chức không gian và vận chuyển nội bào.',group:'Môi trường & điều phối',tags:['Vi ống','Actin','Vận chuyển'],structure:'Gồm chủ yếu vi ống cấu tạo từ tubulin và vi sợi actin. Hai hệ sợi này tạo mạng lưới trong tế bào; thực vật có bộ máy khung xương chuyên hóa phù hợp với thành tế bào cứng.',features:['Có tính động: liên tục lắp ráp và tháo rời.','Phân bố khắp tế bào chất và sát màng sinh chất.','Tương tác với protein vận động để dịch chuyển bào quan và túi màng.'],functions:['Duy trì tổ chức và hình dạng tế bào.','Định hướng vận chuyển nội bào và dòng tế bào chất.','Tham gia hình thành thoi phân bào và định hướng vách ngăn mới.'],roles:'Khung xương tế bào giúp tổ chức không gian nội bào, định hướng sự tăng trưởng và phân chia tế bào thực vật.',physical:'Tạo độ bền cơ học và khả năng thay đổi cấu trúc nhanh. Vi ống có tính phân cực; vi sợi actin cũng có tính phân cực.',chemical:'Vi ống được cấu tạo từ tubulin; vi sợi chủ yếu từ actin. Các protein liên kết và protein vận động điều hòa sự lắp ráp, ổn định và dịch chuyển.',biological:'Vi ống định hướng sự sắp xếp cellulose mới trong thành tế bào; actin cùng myosin tham gia dòng tế bào chất và vận chuyển túi màng.',advanced:'Vòng vi ống tiền kỳ (preprophase band) ở tế bào thực vật có thể đánh dấu mặt phẳng phân chia. Vi ống vỏ tế bào định hướng phức hợp cellulose synthase khi tế bào kéo dài.',correction:'Tài liệu phổ thông đôi khi liệt kê ba loại sợi, trong đó có sợi trung gian. Ở thực vật bậc cao, hai hệ cấu trúc được nhấn mạnh nhất là vi ống và vi sợi actin; không nên mặc định chúng có hệ sợi trung gian giống tế bào động vật.'},
+ {id:'peroxisome',name:'Peroxysome',en:'Peroxisome',short:'Bào quan oxy hóa – khử, phân giải acid béo và khử độc hydrogen peroxide.',group:'Năng lượng & chuyển hóa',tags:['Màng đơn','Catalase','Hô hấp sáng'],structure:'Peroxisome là bào quan có màng đơn, chứa nhiều enzyme oxy hóa như oxidase và catalase. Thành phần enzyme thay đổi theo loại tế bào và chức năng chuyên hóa.',features:['Thường có kích thước nhỏ và hình cầu/bầu dục.','Có thể tăng sinh và thay đổi số lượng theo nhu cầu chuyển hóa.','Trong tế bào quang hợp thường phối hợp chức năng với lục lạp và ti thể.'],functions:['Phân giải H₂O₂ bằng enzyme catalase.','Tham gia oxy hóa acid béo và một số hợp chất hữu cơ.','Tham gia các bước của hô hấp sáng ở thực vật C₃.'],roles:'Peroxisome giúp kiểm soát các sản phẩm oxy hóa có hoạt tính và kết nối nhiều con đường chuyển hóa carbon – lipid ở tế bào thực vật.',physical:'Bào quan dạng túi nhỏ có màng đơn; enzyme tập trung trong chất nền của bào quan.',chemical:'Chứa enzyme oxidase tạo H₂O₂ trong một số phản ứng và catalase phân hủy H₂O₂. Phản ứng tổng quát: 2H₂O₂ → 2H₂O + O₂.',biological:'Trong hô hấp sáng, peroxisome phối hợp với lục lạp và ti thể để chuyển hóa các chất trung gian phát sinh từ hoạt động oxygenase của Rubisco.',advanced:'Ở hạt giàu dầu đang nảy mầm, peroxisome chuyên hóa thành glyoxysome. Chu trình glyoxylate giúp chuyển sản phẩm phân giải lipid thành tiền chất carbohydrate phục vụ cây mầm trước khi quang hợp đủ mạnh.',correction:'Không phải mọi peroxisome đều chứa cùng một bộ enzyme; glyoxysome là dạng peroxisome chuyên hóa, không phải một bào quan hoàn toàn tách biệt.'},
+ {id:'golgi',name:'Thể Golgi',en:'Golgi apparatus',short:'Trung tâm biến đổi, phân loại và đóng gói sản phẩm của hệ nội màng.',group:'Điều khiển & tổng hợp',tags:['Cisternae','Cis – Trans','Đóng gói'],structure:'Gồm các túi màng dẹt xếp chồng (cisternae) và nhiều túi vận chuyển. Mặt cis thường nhận sản phẩm từ lưới nội chất; mặt trans phân loại và đưa sản phẩm đi tiếp.',features:['Có tính phân cực rõ theo hướng nhận – xử lý – xuất.','Các túi màng liên tục nảy chồi và dung hợp.','Ở thực vật thường có nhiều chồng Golgi (dictyosome) phân bố trong tế bào.'],functions:['Biến đổi, hoàn thiện protein và lipid nhận từ lưới nội chất.','Phân loại, đóng gói và phân phối sản phẩm đến đích.','Tổng hợp một số polysaccharide của thành tế bào như pectin và hemicellulose.'],roles:'Golgi là trung tâm điều phối giao nhận vật chất của hệ nội màng, đặc biệt quan trọng trong tiết chất và xây dựng thành tế bào thực vật.',physical:'Là hệ các túi màng dẹt có cấu trúc xếp chồng, luôn biến đổi do vận chuyển túi màng.',chemical:'Các enzyme trong từng vùng Golgi xúc tác biến đổi carbohydrate gắn trên protein/lipid và tổng hợp một số polysaccharide thành tế bào.',biological:'Túi vận chuyển mang sản phẩm từ ER đến Golgi; các túi sau đó đưa sản phẩm tới không bào, màng sinh chất hoặc ra ngoài tế bào.',advanced:'Khi tế bào thực vật phân chia, các túi có nguồn gốc Golgi tập trung tại mặt phẳng xích đạo và hợp nhất để góp phần hình thành phiến tế bào (cell plate), tiền thân của vách ngăn mới.',correction:'Không nên coi các túi dẹt trong một chồng Golgi là các túi thông trực tiếp với nhau; sự vận chuyển giữa các vùng diễn ra nhờ túi màng và cơ chế trưởng thành cisternae.'},
+ {id:'chloroplast',name:'Lục lạp',en:'Chloroplast',short:'Bào quan quang hợp, chuyển năng lượng ánh sáng thành năng lượng hóa học.',group:'Năng lượng & chuyển hóa',tags:['Diệp lục','Thylakoid','Quang hợp'],structure:'Lục lạp có màng ngoài và màng trong; bên trong là chất nền stroma, hệ túi dẹt thylakoid. Các thylakoid xếp chồng thành grana và được nối bởi các lamella.',features:['Chứa diệp lục và các sắc tố quang hợp khác.','Có DNA và ribosome riêng.','Hình dạng, số lượng và vị trí có thể thay đổi tùy loại tế bào và điều kiện chiếu sáng.'],functions:['Pha sáng diễn ra trên màng thylakoid, tạo ATP và NADPH, đồng thời giải phóng O₂ từ nước.','Chu trình Calvin diễn ra trong stroma, sử dụng CO₂ để tổng hợp carbohydrate.','Có vai trò trong một số quá trình sinh tổng hợp khác của tế bào thực vật.'],roles:'Lục lạp giúp thực vật tự dưỡng bằng quang hợp, tích lũy năng lượng hóa học trong chất hữu cơ và góp phần duy trì chu trình carbon – oxy.',physical:'Hấp thụ một phần ánh sáng khả kiến nhờ hệ sắc tố; diệp lục phản xạ ánh sáng xanh lục nên lá thường có màu xanh.',chemical:'Chứa chlorophyll a, chlorophyll b, carotenoid, protein màng, enzyme, DNA và RNA. Phương trình tổng quát rút gọn của quang hợp được thể hiện trong thẻ bên dưới.',biological:'Pha sáng trên màng thylakoid chuyển năng lượng ánh sáng thành ATP và NADPH; pha cố định carbon diễn ra trong stroma thông qua chu trình Calvin.',advanced:'Thuyết nội cộng sinh cho rằng lục lạp có nguồn gốc từ vi khuẩn lam cổ đại. Màng kép, hệ gene riêng và ribosome là các đặc điểm phù hợp với giả thuyết này.',equation:'6CO₂ + 12H₂O  —(ánh sáng, diệp lục)→  C₆H₁₂O₆ + 6O₂ + 6H₂O',correction:'“Pha tối” không có nghĩa là chỉ diễn ra ban đêm; chu trình Calvin không sử dụng trực tiếp photon nhưng phụ thuộc ATP và NADPH do pha sáng cung cấp.'},
+ {id:'vacuole',name:'Không bào',en:'Vacuole',short:'Khoang dịch lớn điều hòa nước, áp suất trương và dự trữ chất.',group:'Dự trữ & cân bằng',tags:['Tonoplast','Dịch tế bào','Áp suất trương'],structure:'Không bào trung tâm được bao bởi màng đơn gọi là tonoplast; bên trong chứa dịch không bào gồm nước, ion, đường, acid hữu cơ, sắc tố và các chất hòa tan khác.',features:['Thường phát triển lớn ở tế bào thực vật trưởng thành.','Thể tích có thể chiếm phần lớn thể tích tế bào nhưng thay đổi theo loại mô.','Màng tonoplast có các protein vận chuyển và bơm proton.'],functions:['Điều hòa cân bằng nước và áp suất trương.','Dự trữ ion khoáng, đường, amino acid, sắc tố và một số chất chuyển hóa.','Cô lập chất thải hoặc hợp chất có tác dụng phòng vệ.'],roles:'Không bào giúp tế bào duy trì sức trương, góp phần nâng đỡ mô non; đồng thời đóng vai trò kho dự trữ và khoang phân giải nội bào.',physical:'Là khoang dịch lớn; thay đổi lượng nước làm thay đổi thể tích và sức trương của tế bào. Mất nước làm tế bào giảm sức trương và cây có thể héo.',chemical:'Dịch không bào thường có pH acid hơn bào tương do hoạt động của bơm proton trên tonoplast. Thành phần hòa tan rất đa dạng.',biological:'Nước đi qua màng theo chênh lệch thế nước. Tonoplast điều khiển tích lũy chất tan, qua đó ảnh hưởng đến áp suất thẩm thấu và sức trương.',advanced:'Ở nhiều thực vật CAM, acid hữu cơ (đặc biệt malate) được tích lũy trong không bào vào ban đêm và được huy động vào ban ngày để hỗ trợ cố định carbon. Mức tích lũy và cơ chế thay đổi tùy loài.',correction:'Tỉ lệ thể tích không bào trung tâm thay đổi mạnh theo tế bào và tuổi mô; con số 30–90% trong tài liệu là khoảng minh họa, không phải giá trị cố định cho mọi tế bào.'},
+ {id:'amyloplast',name:'Lạp bột',en:'Amyloplast',short:'Lạp thể không màu chuyên tổng hợp và tích lũy tinh bột.',group:'Dự trữ & cân bằng',tags:['Leucoplast','Tinh bột','Hướng trọng lực'],structure:'Amyloplast là một loại lạp thể không màu (leucoplast), có màng kép và các hạt tinh bột bên trong. Thường gặp trong mô dự trữ như củ, rễ và hạt.',features:['Không có lượng sắc tố quang hợp như lục lạp.','Có nhiều trong cơ quan tích lũy tinh bột, ví dụ củ khoai tây.','Lạp thể có khả năng chuyển hóa giữa một số dạng trong phát triển của cây.'],functions:['Tổng hợp và dự trữ tinh bột từ các sản phẩm carbon.','Huy động tinh bột thành đường khi cơ quan cần năng lượng.','Tham gia cảm nhận trọng lực ở một số tế bào rễ và thân.'],roles:'Lạp bột là kho dự trữ carbon và năng lượng; các hạt amyloplast lắng theo trọng lực giúp một số tế bào định hướng sinh trưởng của cơ quan.',physical:'Hạt tinh bột tạo khối có thể lắng xuống trong tế bào cảm nhận trọng lực (statoliths). Đặc tính lắng liên quan khối lượng riêng của hạt và môi trường tế bào.',chemical:'Tinh bột gồm amylose (chủ yếu mạch ít phân nhánh) và amylopectin (mạch phân nhánh), đều là polymer của glucose.',biological:'Amyloplast tích lũy nhiều ở mô dự trữ. Ở tế bào cảm nhận trọng lực tại chóp rễ, sự dịch chuyển/lắng của amyloplast tham gia kích hoạt tín hiệu hướng trọng lực.',advanced:'Ở một số mô và điều kiện phát triển, lạp thể có thể chuyển dạng; tiền lạp thể hoặc lạp thể không màu có thể phát triển thành lục lạp khi nhận ánh sáng. Mức chuyển đổi tùy mô và chương trình phát triển.',correction:'Amyloplast không phải tên gọi chung cho mọi leucoplast: đây là nhóm leucoplast chuyên tích lũy tinh bột. Rễ cong theo hướng trọng lực là kết quả của tín hiệu và phân bố hormone tăng trưởng, không chỉ do hạt tinh bột “kéo” rễ.'},
+ {id:'ribosome',name:'Ribosome',en:'Ribosome',short:'Phức hợp rRNA – protein thực hiện dịch mã tổng hợp polypeptide.',group:'Điều khiển & tổng hợp',tags:['rRNA + protein','Dịch mã','80S / 70S'],structure:'Ribosome không có màng, gồm tiểu đơn vị lớn và nhỏ. Thành phần cấu tạo là rRNA và protein ribosome; có thể nằm tự do trong cytosol hoặc gắn với RER.',features:['Kích thước rất nhỏ, chỉ quan sát rõ bằng kính hiển vi điện tử.','Có ribosome tự do và ribosome liên kết với lưới nội chất hạt.','Lục lạp và ti thể cũng có hệ ribosome riêng.'],functions:['Đọc thông tin trên mRNA trong quá trình dịch mã.','Xúc tác hình thành liên kết peptide giữa các amino acid.','Tạo chuỗi polypeptide để sau đó gấp cuộn và biến đổi thành protein chức năng.'],roles:'Ribosome là nơi tổng hợp protein – vật liệu cấu trúc và enzyme thiết yếu của tế bào; hoạt động của ribosome liên kết trực tiếp với biểu hiện gene.',physical:'Là phức hợp đại phân tử gồm hai tiểu đơn vị; hai phần kết hợp khi dịch mã và tách ra khi quá trình kết thúc.',chemical:'Gồm rRNA và protein ribosome. Hoạt tính xúc tác tạo liên kết peptide chủ yếu do rRNA đảm nhiệm (ribozym).',biological:'Ribosome bào tương của tế bào nhân thực thường thuộc nhóm 80S; ribosome trong lục lạp và ti thể nhỏ hơn, thường được giản lược mô tả là gần kiểu 70S.',advanced:'Nhiều ribosome cùng dịch mã trên một mRNA tạo thành polysome/polyribosome, giúp tăng hiệu suất tạo nhiều bản sao protein từ cùng một phân tử mRNA.',correction:'Ký hiệu S là hệ số lắng Svedberg, không cộng số học như đơn vị khối lượng: 60S + 40S tạo ribosome 80S, không phải 100S.'}
+];
+
+const $ = id => document.getElementById(id);
+let selectedId='wall', activeTab='overview', quizMode=false;
+const palette={wall:0x169c55,membrane:0x27cdb0,cytoplasm:0x9de94b,nucleus:0x8c55e8,nucleolus:0xffd21c,er:0xf4a46a,mitochondria:0xf04439,cytoskeleton:0xffd34e,peroxisome:0xff7dd4,golgi:0x8758ec,chloroplast:0x10a84c,vacuole:0x218fe8,amyloplast:0xae5ddd,ribosome:0x22c66d};
+function renderList(query=''){
+ const list=$('partList'); list.innerHTML='';
+ parts.filter(p=>(p.name+' '+p.en+' '+p.group).toLowerCase().includes(query.toLowerCase())).forEach(p=>{
+  const idx=parts.indexOf(p)+1; const b=document.createElement('button'); b.className='part-item'+(p.id===selectedId?' selected':''); b.type='button'; b.innerHTML=`<span class="part-num">${String(idx).padStart(2,'0')}</span><span class="part-name">${p.name}</span><span class="part-dot" style="background:#${palette[p.id].toString(16).padStart(6,'0')}"></span>`; b.setAttribute('aria-label',`Chọn ${p.name}`); b.addEventListener('click',()=>selectPart(p.id)); list.appendChild(b);
+ });
+ if(!list.children.length){list.innerHTML='<div style="padding:12px;color:#82988d;font-size:11px">Không tìm thấy thành phần phù hợp.</div>'}
+}
+function tagsHTML(p){return p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+function block(title,content,icon='•'){return `<section class="info-block"><h4><span style="color:#18a36a">${icon}</span>${title}</h4>${content}</section>`}
+function listHTML(items){return `<ul>${items.map(x=>`<li>${x}</li>`).join('')}</ul>`}
+function renderDetails(){
+ const p=parts.find(x=>x.id===selectedId)||parts[0], n=parts.indexOf(p)+1;
+ $('detailKicker').textContent=`HỒ SƠ BÀO QUAN · ${String(n).padStart(2,'0')} / 14`;
+ $('detailTitle').textContent=p.name; $('detailSub').textContent=p.short; $('detailTags').innerHTML=tagsHTML(p);
+ document.querySelectorAll('.tab').forEach(t=>{const yes=t.dataset.tab===activeTab;t.classList.toggle('active',yes);t.setAttribute('aria-selected',String(yes))});
+ let html='';
+ if(activeTab==='overview'){
+  html+=block('Cấu tạo & đặc điểm',`<p>${p.structure}</p>${listHTML(p.features)}`,'◈');
+  html+=block('Công dụng / chức năng',listHTML(p.functions),'✦');
+  html+=block('Vai trò trong tế bào',`<p>${p.roles}</p>`,'◎');
+  if(p.equation) html+=`<div class="chem-eq">${p.equation}</div>`;
+ }else if(activeTab==='properties'){
+  html+=block('Tính chất vật lý',`<p>${p.physical}</p>`,'◌');
+  html+=block('Tính chất hóa học',`<p>${p.chemical}</p>`,'⚗');
+  html+=block('Đặc điểm sinh học',`<p>${p.biological}</p>`,'⌘');
+  if(p.equation) html+=`<div class="chem-eq">${p.equation}</div>`;
+ }else{
+  html+=block('Kiến thức nâng cao',`<p>${p.advanced}</p>`,'✧');
+  html+=`<div class="science-note"><b>Lưu ý khoa học:</b> ${p.correction}</div>`;
+  html+=block('Liên hệ học tập',`<p>Hãy thử liên hệ cấu trúc này với chức năng của nó, sau đó tìm một ví dụ ở mô hoặc cơ quan thực vật nơi chức năng đó đặc biệt quan trọng.</p>`,'⌕');
+ }
+ $('detailContent').innerHTML=html;
+ $('prevBtn').disabled=n===1; $('nextBtn').disabled=n===parts.length;
+ $('prevBtn').style.opacity=n===1?'.45':'1'; $('nextBtn').style.opacity=n===parts.length?'.45':'1';
+ $('selectedChip').textContent=p.name;
+ document.querySelectorAll('.scene-tag').forEach(button=>{
+  const selected=button.dataset.partId===selectedId;
+  button.classList.toggle('selected',selected);button.setAttribute('aria-pressed',String(selected));
+ });
+}
+function selectPart(id){selectedId=id;activeTab='overview';renderList($('searchInput').value);renderDetails();if(window.innerWidth<760)$('detailPanel').scrollIntoView({behavior:'smooth',block:'nearest'});}
+$('searchInput').addEventListener('input',e=>renderList(e.target.value));
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{activeTab=t.dataset.tab;renderDetails()}));
+$('prevBtn').addEventListener('click',()=>{const i=parts.findIndex(p=>p.id===selectedId);if(i>0)selectPart(parts[i-1].id)});
+$('nextBtn').addEventListener('click',()=>{const i=parts.findIndex(p=>p.id===selectedId);if(i<parts.length-1)selectPart(parts[i+1].id)});
+
+// --- IMAGE MODEL AND SELECTABLE LABELS ---
+const labels=[
+ {part:'wall',name:'Thành tế bào',left:79.1,top:54.7},
+ {part:'membrane',name:'Màng tế bào',left:75.6,top:67.7},
+ {part:'cytoplasm',name:'Tế bào chất',left:69.8,top:30.2},
+ {part:'nucleus',name:'Nhân',left:63.3,top:66.3},
+ {part:'nucleolus',name:'Hạch nhân (nhân con)',left:57.7,top:59.8},
+ {part:'er',name:'Lưới nội chất',left:52.5,top:73.5},
+ {part:'mitochondria',name:'Ti thể',left:62,top:30.2},
+ {part:'cytoskeleton',name:'Khung xương tế bào',left:47.9,top:43.5},
+ {part:'peroxisome',name:'Peroxysome',left:70.7,top:45.5},
+ {part:'golgi',name:'Thể Golgi',left:49.1,top:25},
+ {part:'chloroplast',name:'Lục lạp',left:43.6,top:51.3},
+ {part:'vacuole',name:'Không bào',left:34.3,top:34.4},
+ {part:'amyloplast',name:'Lạp bột',left:34.1,top:62.7},
+ {part:'ribosome',name:'Ribosome',left:37.1,top:71}
+];
+for(const label of labels){
+ const button=document.createElement('button');
+ const number=parts.findIndex(part=>part.id===label.part)+1;
+ button.type='button';button.className='scene-tag'+(label.part===selectedId?' selected':'');button.textContent=number;
+ button.style.left=label.left+'%';button.style.top=label.top+'%';
+ button.dataset.partId=label.part;button.title=`${number} · ${label.name}`;button.setAttribute('aria-label',`${number}, ${label.name}`);button.setAttribute('aria-pressed',String(label.part===selectedId));
+ button.addEventListener('click',()=>selectPart(label.part));
+ $('legendLayer').appendChild(button);
+}
+let labelsVisible=true;
+$('labelsBtn').addEventListener('click',()=>{
+ labelsVisible=!labelsVisible;
+ $('labelsBtn').classList.toggle('active',labelsVisible);
+ $('legendLayer').classList.toggle('show',labelsVisible);
+});
+const host=$('scenePanel'),modelContent=$('modelContent');
+const minZoom=1,maxZoom=4;
+let zoom=1,panX=0,panY=0,modelWidth=0,modelHeight=0;
+const activePointers=new Map();
+let pinchDistance=0;
+function updateModelLayout(){
+ const fit=Math.min(host.clientWidth/1448,host.clientHeight/1079);
+ modelWidth=1448*fit;modelHeight=1079*fit;
+ modelContent.style.width=modelWidth+'px';modelContent.style.height=modelHeight+'px';
+ constrainPan();renderModelTransform();
+}
+function constrainPan(){
+ panX=Math.max(-modelWidth*(zoom-1)/2,Math.min(modelWidth*(zoom-1)/2,panX));
+ panY=Math.max(-modelHeight*(zoom-1)/2,Math.min(modelHeight*(zoom-1)/2,panY));
+}
+function renderModelTransform(){
+ modelContent.style.transform=`translate(calc(-50% + ${panX}px),calc(-50% + ${panY}px)) scale(${zoom})`;
+ $('zoomLevel').textContent=`${Math.round(zoom*100)}%`;
+}
+function zoomAt(nextZoom,clientX,clientY){
+ const rect=host.getBoundingClientRect();
+ const cursorX=clientX-(rect.left+rect.width/2),cursorY=clientY-(rect.top+rect.height/2);
+ const boundedZoom=Math.max(minZoom,Math.min(maxZoom,nextZoom)),ratio=boundedZoom/zoom;
+ panX=cursorX-(cursorX-panX)*ratio;panY=cursorY-(cursorY-panY)*ratio;
+ zoom=boundedZoom;constrainPan();renderModelTransform();
+}
+function zoomFromCenter(nextZoom){
+ const rect=host.getBoundingClientRect();
+ zoomAt(nextZoom,rect.left+rect.width/2,rect.top+rect.height/2);
+}
+function pointerDistance(){
+ const [first,second]=activePointers.values();
+ return Math.hypot(second.x-first.x,second.y-first.y);
+}
+function pointerMidpoint(){
+ const [first,second]=activePointers.values();
+ return {x:(first.x+second.x)/2,y:(first.y+second.y)/2};
+}
+host.addEventListener('wheel',event=>{
+ event.preventDefault();
+ zoomAt(zoom*(event.deltaY<0?1.12:1/1.12),event.clientX,event.clientY);
+},{passive:false});
+host.addEventListener('pointerdown',event=>{
+ if(event.button!==0||event.target.closest('button,.scene-label,.scene-hint,.selected-chip'))return;
+ event.preventDefault();host.setPointerCapture(event.pointerId);
+ activePointers.set(event.pointerId,{x:event.clientX,y:event.clientY});
+ if(activePointers.size===2)pinchDistance=pointerDistance();
+ host.classList.toggle('dragging',activePointers.size===1);
+});
+host.addEventListener('pointermove',event=>{
+ if(!activePointers.has(event.pointerId))return;
+ const previous=activePointers.get(event.pointerId),next={x:event.clientX,y:event.clientY};
+ activePointers.set(event.pointerId,next);
+ if(activePointers.size===1){
+  panX+=next.x-previous.x;panY+=next.y-previous.y;constrainPan();renderModelTransform();
+ }else if(activePointers.size===2){
+  const midpoint=pointerMidpoint(),distance=pointerDistance();
+  if(pinchDistance>0)zoomAt(zoom*distance/pinchDistance,midpoint.x,midpoint.y);
+  pinchDistance=distance;
+ }
+});
+function endPointer(event){
+ activePointers.delete(event.pointerId);
+ if(activePointers.size===2)pinchDistance=pointerDistance();
+ else pinchDistance=0;
+ host.classList.toggle('dragging',activePointers.size===1);
+}
+host.addEventListener('pointerup',endPointer);
+host.addEventListener('pointercancel',endPointer);
+$('zoomInBtn').addEventListener('click',()=>zoomFromCenter(zoom*1.25));
+$('zoomOutBtn').addEventListener('click',()=>zoomFromCenter(zoom/1.25));
+$('zoomResetBtn').addEventListener('click',()=>{zoom=1;panX=0;panY=0;renderModelTransform()});
+new ResizeObserver(updateModelLayout).observe(host);
+updateModelLayout();
+// --- QUIZ ---
+const questions=[
+ {q:'Thành phần nào tạo nên lớp vách cứng nằm phía ngoài màng sinh chất ở tế bào thực vật?',a:['Thành tế bào','Màng sinh chất','Lưới nội chất','Thể Golgi'],c:0,e:'Thành tế bào nằm ngoài màng sinh chất, giàu cellulose và góp phần bảo vệ, định hình tế bào.'},
+ {q:'Quá trình tạo ATP nhờ chuỗi truyền electron và phosphoryl hóa oxy hóa diễn ra chủ yếu ở đâu?',a:['Chất nền ti thể','Màng trong ti thể','Màng ngoài nhân','Dịch không bào'],c:1,e:'Chuỗi truyền electron và ATP synthase nằm trên màng trong ti thể; màng gấp thành các mào để tăng diện tích.'},
+ {q:'Bào quan nào trực tiếp thực hiện dịch mã tổng hợp chuỗi polypeptide?',a:['Hạch nhân','Peroxisome','Ribosome','Bộ Golgi'],c:2,e:'Ribosome đọc mRNA và xúc tác hình thành liên kết peptide giữa các amino acid.'},
+ {q:'Pha sáng của quang hợp diễn ra ở cấu trúc nào của lục lạp?',a:['Chất nền stroma','Màng thylakoid','Màng ngoài','Dịch không bào'],c:1,e:'Các hệ sắc tố và chuỗi truyền electron quang hợp nằm trên màng thylakoid.'},
+ {q:'Enzyme catalase trong peroxisome xúc tác phản ứng nào?',a:['Phân giải H₂O₂ thành H₂O và O₂','Tổng hợp cellulose','Tạo glucose từ CO₂','Nhân đôi DNA'],c:0,e:'Catalase giúp phân giải hydrogen peroxide, một sản phẩm có thể gây hại cho tế bào.'},
+ {q:'Cấu trúc nào chứa các vùng DNA mã hóa rRNA và là nơi lắp ráp tiểu đơn vị ribosome?',a:['Nhân con','Không bào','Lục lạp','Màng sinh chất'],c:0,e:'Hạch nhân nằm trong nhân, tổng hợp rRNA và lắp ráp sơ bộ các tiểu đơn vị ribosome.'},
+ {q:'Amyloplast có vai trò nổi bật nào trong một số tế bào chóp rễ?',a:['Hấp thụ ánh sáng','Cảm nhận trọng lực nhờ sự lắng của hạt tinh bột','Tổng hợp ATP bằng hô hấp','Tạo protein tiết'],c:1,e:'Amyloplast chứa tinh bột có thể đóng vai trò statolith, tham gia cảm nhận hướng trọng lực.'},
+ {q:'Màng không bào (tonoplast) có vai trò trực tiếp nào?',a:['Tổng hợp rRNA','Tạo thoi phân bào','Điều hòa vận chuyển chất giữa dịch không bào và tế bào chất','Tổng hợp cellulose'],c:2,e:'Tonoplast có các kênh và bơm vận chuyển, góp phần kiểm soát pH, ion, chất tan và cân bằng nước.'}
+];
+let qIndex=0,score=0,answered=false;
+function drawQuestion(){const q=questions[qIndex];$('quizNumber').textContent=`CÂU ${qIndex+1} / ${questions.length}`;$('quizProgress').style.width=`${qIndex/questions.length*100}%`; $('quizBody').innerHTML=`<div class="question">${qIndex+1}. ${q.q}</div><div class="answers">${q.a.map((a,i)=>`<button class="answer" data-answer="${i}"><b>${String.fromCharCode(65+i)}.</b> ${a}</button>`).join('')}</div><div class="quiz-feedback" id="quizFeedback"></div><div class="quiz-actions"><button class="action" id="quitQuiz">Quay lại mô hình</button><button class="action primary" id="nextQuestion" disabled>${qIndex===questions.length-1?'Xem kết quả':'Câu tiếp theo'} →</button></div>`;answered=false;
+ document.querySelectorAll('.answer').forEach(b=>b.addEventListener('click',()=>{if(answered)return;answered=true;const chosen=Number(b.dataset.answer);const all=[...document.querySelectorAll('.answer')];all.forEach((x,i)=>{x.disabled=true;if(i===q.c)x.classList.add('correct')});if(chosen===q.c)score++;else b.classList.add('wrong');$('quizFeedback').textContent=(chosen===q.c?'Chính xác! ':'Chưa chính xác. ')+q.e;$('quizFeedback').classList.add('show');$('nextQuestion').disabled=false;$('quizProgress').style.width=`${(qIndex+1)/questions.length*100}%`}));
+ $('nextQuestion').addEventListener('click',()=>{if(!answered)return;if(qIndex<questions.length-1){qIndex++;drawQuestion()}else drawResult()});$('quitQuiz').addEventListener('click',exitQuiz);
+}
+function drawResult(){$('quizNumber').textContent='HOÀN THÀNH';$('quizProgress').style.width='100%';$('quizBody').innerHTML=`<div class="quiz-result"><div class="score">${score}/${questions.length}</div><h3>${score>=7?'Xuất sắc!':score>=5?'Làm tốt lắm!':'Tiếp tục khám phá nhé!'}</h3><p style="color:#718c80;font-size:12px;line-height:1.7">Bạn đã hoàn thành bộ câu hỏi về tế bào thực vật. Hãy xem lại các thẻ kiến thức để củng cố những phần còn nhầm lẫn.</p><button class="action primary" id="retryQuiz">Làm lại bài ôn tập</button> <button class="action" id="backModel">Trở về mô hình</button></div>`;$('retryQuiz').addEventListener('click',startQuiz);$('backModel').addEventListener('click',exitQuiz)}
+function startQuiz(){quizMode=true;$('exploreView').classList.add('quiz-active');document.querySelector('.side-list').style.display='none';document.querySelector('.center-col').style.display='none';$('detailPanel').style.display='none';$('quizView').classList.add('active');qIndex=0;score=0;drawQuestion();$('quizBtn').textContent='↩ Quay lại mô hình';window.scrollTo({top:0,behavior:'smooth'})}
+function exitQuiz(){quizMode=false;document.querySelector('.side-list').style.display='flex';document.querySelector('.center-col').style.display='flex';$('detailPanel').style.display='flex';$('quizView').classList.remove('active');$('quizBtn').textContent='✦ Ôn tập kiến thức';window.scrollTo({top:0,behavior:'smooth'})}
+$('quizBtn').addEventListener('click',()=>quizMode?exitQuiz():startQuiz());
+$('helpBtn').addEventListener('click',()=>$('helpModal').classList.add('show'));$('closeHelp').addEventListener('click',()=>$('helpModal').classList.remove('show'));$('helpModal').addEventListener('click',e=>{if(e.target===$('helpModal'))$('helpModal').classList.remove('show')});document.addEventListener('keydown',e=>{if(e.key==='Escape')$('helpModal').classList.remove('show');if(!quizMode&&e.key==='ArrowRight'&&document.activeElement.tagName!=='INPUT')$('nextBtn').click();if(!quizMode&&e.key==='ArrowLeft'&&document.activeElement.tagName!=='INPUT')$('prevBtn').click()});
+renderList();renderDetails();
+</script>
+</body>
+</html>
